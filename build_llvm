@@ -2,13 +2,10 @@
 
 set -e
 
-git submodule init 
-git submodule update
-
 cd llvm-project
 
 mkdir build
 cd build
 
 cmake -DLLVM_ENABLE_PROJECTS="clang;compiler-rt;clang-tools-extra" -DLLVM_ENABLE_RUNTIMES="all" -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" ../llvm
-make
+make -j10

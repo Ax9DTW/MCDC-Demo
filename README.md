@@ -1,5 +1,7 @@
 # LLVM MCDC Demo
 
+Instructions are for MacOS
+
 ## Cloning
 
 We need the preview version of llvm which has support for mcdc
