@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e 
+
+rm -f *.profdata
+
+../llvm-project/build/bin/llvm-profdata merge -sparse *.profraw -o coverage.profdata
+
+rm -rf coverage_report
+
+../llvm-project/build/bin/llvm-cov show --format=html ./main -instr-profile=coverage.profdata --show-mcdc-summary -output-dir=coverage_report
+
+open coverage_report/index.html
+
+rm -f *.profraw

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -e
+export SDKROOT=$(xcrun --show-sdk-path)
+../llvm-project/build/bin/clang main.cpp -o main -fprofile-instr-generate -fcoverage-mapping -fcoverage-mcdc
+./main
